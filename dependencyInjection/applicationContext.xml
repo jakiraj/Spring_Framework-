@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean id="a1" class="dependencyInjection.Address">
+        <constructor-arg value="Dhanmondi"></constructor-arg>
+        <constructor-arg value="Dhaka"></constructor-arg>
+        <constructor-arg value="Bangladesh"></constructor-arg>
+    </bean>
+    
+    <bean id="a2" class="dependencyInjection.Address">
+        <constructor-arg value="Balubari"></constructor-arg>
+        <constructor-arg value="Dinajpur"></constructor-arg>
+        <constructor-arg value="Bangladesh"></constructor-arg>
+    </bean> 
+    
+    <bean id="e" class="dependencyInjection.Employee">
+        <!-- setter method -->
+        <property name="name">
+            <value>Md. Jakir Hossain</value>
+        </property>
+        <!-- for int-->
+        <constructor-arg value="10" type="int"></constructor-arg>
+        <!-- for String-->
+        <constructor-arg value="Jakir"></constructor-arg>
+        <constructor-arg>
+            <list>
+            <ref bean="a1"></ref>
+            <ref bean="a2"></ref>
+            </list>
+        </constructor-arg>
+    </bean>
+</beans>
